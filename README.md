@@ -13,8 +13,18 @@ Concept:
 5. When a transaction arrives into the monitored Nano wallet. The Monitors will sign a transaction on the BSC chain to mint and transfer to the corresponding BSC address from the Nano sender address.
 6. When a transaction arrives into the monitored BSC wallet. The Monitors will sign a transaction on the BSC chain to redeem(remove) the wNano and the the Monitors will sign a transaction on Nano to transfer to the corresponding Nano address from the BSC sender address.
 
+Nano MultiSig:
 
+Requires 100% agreement which is a risk if a Monitor decides not to monitor anymore. To avoid this we would need to share keys.
 
+1. Using the example of 3 monitors. 
+2. Each Monitor would have a private key and public address. Each monitor would share its private key with one other monitor in a circle as follows
+
+Monitor A -> Monitor B -> Monitor C -> Monitor A
+
+In this example A would know AC but would need B to complete a transaction. If B was to go offline, C would know CB and so it would be possible to transfer the funds out of the multisig wallet to a new multisig wallet with a new B.
+
+3. ...
 
 Example Signed wBan message:
 
