@@ -24,7 +24,7 @@ Monitor A -> Monitor B -> Monitor C -> Monitor A
 
 In this example A would know AC but would need B to complete a transaction. If B was to go offline, C would know CB and so it would be possible to transfer the funds out of the multisig wallet to a new multisig wallet with a new B.
 
-3. ...
+3. https://github.com/PlasmaPower/musig-nano exports a CFFI with functions for the 3 stages of signing. (Blocker: In theory the 3 Monitors should detect the transaction at around the same time. They will all create a block and sign it and send to each other to sign the same block. Will the block they all create be the same hash? if not we will need to work this out to prevent duplication of work).
 
 Example Signed wBan message:
 
