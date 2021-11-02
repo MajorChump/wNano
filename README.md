@@ -9,7 +9,7 @@ Concept:
 
 1. Any implementation will be multisig. This will prevent one person holding any nano that is wrapped and will require multiple people (Monitors) to work together to mint / redeem wNano.
 2. Monitors will hold part of the multisig key as detailed in the above links for nano and will hold part of a multisig key for BSC. Actors will run a monitor that monitors two addresses. One on the Nano side and one on the BSC side.
-4. A BSC user will sign a transaction similar to the wBan implementation to claim their nano address. Example signed wBan message below.
+4. A BSC user will sign a message similar to the wBan implementation to claim their nano address. Example signed wBan message below.
 5. When a transaction arrives into the monitored Nano wallet. The Monitors will sign a transaction on the BSC chain to mint and transfer to the corresponding BSC address from the Nano sender address.
 6. When a transaction arrives into the monitored BSC wallet. The Monitors will sign a transaction on the BSC chain to redeem(remove) the wNano and the the Monitors will sign a transaction on Nano to transfer to the corresponding Nano address from the BSC sender address.
 
@@ -25,6 +25,10 @@ Monitor A -> Monitor B -> Monitor C -> Monitor A
 In this example A would know AC but would need B to complete a transaction. If B was to go offline, C would know CB and so it would be possible to transfer the funds out of the multisig wallet to a new multisig wallet with a new B.
 
 3. https://github.com/PlasmaPower/musig-nano exports a CFFI with functions for the 3 stages of signing. (Blocker: In theory the 3 Monitors should detect the transaction at around the same time. They will all create a block and sign it and send to each other to sign the same block. Will the block they all create be the same hash? if not we will need to work this out to prevent duplication of work).
+
+Signing of message to claim Nano address:
+
+Monitors will need to know the Nano address -> BSC address relation. The wNano UI will need to have the user sign a message, the address, message and signature will need passing to each monitor for them to index the relationship. If the Monitor is wrote in PHP the following can be used to verify it https://github.com/simplito/elliptic-php#verifying-ethereum-signature
 
 Example Signed wBan message:
 
