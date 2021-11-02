@@ -15,7 +15,7 @@ Concept:
 
 Nano MultiSig:
 
-Requires 100% agreement which is a risk if a Monitor decides not to monitor anymore. To avoid this we would need to share keys.
+Requires 100% agreement which is a risk if a Monitor decides not to monitor anymore. To avoid this we would need to share keys??? AB BC CA?
 
 1. Using the example of 3 monitors. 
 2. Each Monitor would have a private key and public address. Each monitor would share its private key with one other monitor in a circle as follows
